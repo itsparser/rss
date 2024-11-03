@@ -1,16 +1,15 @@
 "use server";
 
 import connectDB, { RssFeed } from "@/lib/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-//
 export async function POST(
-  request: Request,
-  { params }: { params: { id: string } },
+  request: NextRequest,
+  context: { params: { id: string } },
 ) {
   try {
     await connectDB();
-    const feedID = params.id;
+    const feedID = context.params.id;
     const existingFeed = await RssFeed.findOne({ _id: feedID });
     if (!existingFeed) {
       return NextResponse.json({ error: "Feed not found" }, { status: 404 });

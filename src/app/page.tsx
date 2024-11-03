@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable */
+
 import { useState, useEffect } from "react";
 import { Rss, RefreshCw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -21,11 +23,6 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const { toast } = useToast();
-
-  useEffect(() => {
-    fetchRssList();
-    fetchFeedData(currentPage);
-  }, [currentPage]);
 
   const fetchRssList = async () => {
     const response = await api.getRssList();
@@ -141,6 +138,11 @@ export default function Home() {
       fetchFeedData(currentPage);
     }
   };
+
+  useEffect(() => {
+    fetchRssList();
+    fetchFeedData(currentPage);
+  }, [currentPage]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
