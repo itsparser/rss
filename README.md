@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RSS Aggregator
 
-## Getting Started
+This is a simple RSS aggregator built with Next.js and MongoDB.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Add RSS feeds
+- View RSS feeds
+- Mark RSS feeds as read
+- Pagination
+- Dark mode
+
+## create new MongoDB (Optional)
+
+You can create a new MongoDB instance on [MongoDB Atlas](https://www.mongodb.com/atlas/database) or any other MongoDB provider.
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory and add the following variables:
+
+```
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster-url>/<database-name>?retryWrites=true&w=majority
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8888
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Replace the values with your own MongoDB URI, API base URL, and username, password, cluster URL, and database name.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## how to setup cloudflare page
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a new cloudflare page
+2. Create Cloudflare page using github action
+3. Add the cloudflare page url to the .env.local file (refer to the environment variables section)
+4. Deploy the application
 
-## Learn More
+## How to add RSS feeds
 
-To learn more about Next.js, take a look at the following resources:
+1. Open the application in your browser.
+2. Click on the "Add Feed" button.
+3. Enter the URL of the RSS feed.
+4. Click on the "Submit" button.
+5. The RSS feed will be added to the list.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How to view RSS feeds
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Open the application in your browser.
+2. Click on the "Refresh Feeds" button.
+3. The RSS feeds will be displayed on the page.
 
-## Deploy on Vercel
+## How to mark RSS feeds as read
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Open the application in your browser.
+2. Click on the "Mark as Read" button next to the RSS feed.
+3. The RSS feed will be marked as read.
